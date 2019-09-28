@@ -1,7 +1,7 @@
 # magento2-module-popup
 Popup for Magento 2 storefronts
 
-![Popup](app/code/V4U/Popup/docs/Home page.png)
+<img src="app/code/V4U/Popup/docs/Home page.png"/>
 
 ## Supports
 
@@ -29,4 +29,4 @@ Open the Magento 2 Admin Panel and navigate to:
  
  **Stores > Settings > Configuration > POPUP CONFIGURATION > Popup Configuration
 
-![Magento 2 Settings](app/code/V4U/Popup/docs/ConfigurationSettings StoresMagentoAdmin.png)
+<img src="app/code/V4U/Popup/docs/ConfigurationSettings StoresMagentoAdmin.png"/>
