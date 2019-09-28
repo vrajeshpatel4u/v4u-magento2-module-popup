@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="popup" translate="label" sortOrder="10">
+            <label>Popup Configuration</label>
+        </tab>
+        <section id="popup" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Popup Configuration</label>
+            <tab>popup</tab>
+            <resource>V4U_Popup::popup_config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Configuration</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="blockIdentifier" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Block Identifier</label>
+                    <comment>This block identifier is used in popup.</comment>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="cookieTime" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Cookie Time</label>
+                    <comment>Add Cookie Time In Minutes</comment>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                    <validate>required-entry</validate>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

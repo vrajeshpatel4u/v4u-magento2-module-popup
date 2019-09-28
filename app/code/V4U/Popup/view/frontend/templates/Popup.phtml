@@ -1,0 +1,48 @@
+                <div id="v4u_popup" style="display: none;">
+                    <div>
+                        <?php
+                       	$blockIdentifier = $this->getBlockIdentifier();
+                       	$cookieTime = $this->getCookieTime();
+                        echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId($blockIdentifier)->toHtml();
+                        ?>
+                    </div>
+                </div>
+                <?php if($this->isEnabled()):?>
+                <script>
+                require(
+                    [
+                       'jquery',
+                        'Magento_Ui/js/modal/modal'
+                    ],
+                    function(
+                        $,
+                        modal
+                    ) {
+                        var options = {
+                            type: 'popup',
+                            responsive: true,
+                            innerScroll: true,
+                            buttons: [{
+                                text: $.mage.__('Back'),
+                                class: '',
+                                click: function () {
+                                    this.closeModal();
+                                }
+                            }]
+                        };
+                        var popup = modal(options, $('#v4u_popup'));
+                        $(document).ready(function(){
+                             if(!$.cookie('v4uPopUp')) { 
+                             	$('#v4u_popup').modal('openModal');
+                             }
+                        });
+                        $(document).on('click','.action-close',function (){
+                			var date = new Date();
+                			var minutes = <?php echo $cookieTime;?>;
+                			date.setTime(date.getTime() + (minutes * 60 * 1000));
+                			$.cookie("v4uPopUp", "v4uPopUp", { expires: date });
+                        });
+
+                    });
+                </script>
+                <?php endif; ?>
